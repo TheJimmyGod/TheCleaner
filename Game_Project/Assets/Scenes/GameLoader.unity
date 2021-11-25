@@ -370,7 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a6b858dc6d7bd4fb31869c42456565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToPool: []
+  objectsToPool:
+  - name: PlayerBullet
+    prefab: {fileID: 1022674299139112601, guid: e088d8800a6ff3442a39815357b62050,
+      type: 3}
+    poolSize: 100
 --- !u!114 &1404080577
 MonoBehaviour:
   m_ObjectHideFlags: 0
