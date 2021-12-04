@@ -64,7 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Controller\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Controller\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameModuler\AsyncLoader.cs" />
@@ -74,9 +73,14 @@
     <Compile Include="Assets\Scripts\GameModuler\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\GameModuler\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\GameModuler\ServiceLocator.cs" />
+    <Compile Include="Assets\Scripts\Interface\IDamagable.cs" />
+    <Compile Include="Assets\Scripts\Unit\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Unit\FootGunner.cs" />
+    <Compile Include="Assets\Scripts\Unit\HeavyGunner.cs" />
     <Compile Include="Assets\Scripts\Unit\Player.cs" />
+    <Compile Include="Assets\Scripts\Unit\SniperGunner.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Weapon\PlayerGun.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
