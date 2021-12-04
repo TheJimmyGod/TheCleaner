@@ -36,6 +36,5 @@ public class Player : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
