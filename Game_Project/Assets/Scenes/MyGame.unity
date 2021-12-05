@@ -374,5 +374,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 971016299792718321}
+    - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: bulletName
+      value: PlayerBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5d47b25679be24694b8a1f6c27be60, type: 3}
+--- !u!4 &971016299792718321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 971016300767406360, guid: 2c5d47b25679be24694b8a1f6c27be60,
+    type: 3}
+  m_PrefabInstance: {fileID: 971016299792718320}
+  m_PrefabAsset: {fileID: 0}
