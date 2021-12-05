@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
         bullet.GetComponent<Bullet>().Initialize(bulletDamage);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
-        rb.AddForce(firePoint.forward * bulletDamage, ForceMode.Impulse);
+        rb.AddForce(firePoint.forward * bulletSpeed, ForceMode.Impulse);
         ammo--;
     }
 }
