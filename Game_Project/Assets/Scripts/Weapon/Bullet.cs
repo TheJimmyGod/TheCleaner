@@ -5,8 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    public float mLifeSpan = 2.0f;
-    public float mDamage = 5.0f;
+    private float mLifeSpan = 2.0f;
+    [SerializeField]
+    private float mDamage = 5.0f;
+    [SerializeField]
+    private float mAccurancy = 0.1f;
+
+    [SerializeField]
+    private float mHeadShotDamage = 4.0f;
     private bool isInitialized = false;
 
     public void Initialize(float damage)
@@ -20,9 +26,31 @@ public class Bullet : MonoBehaviour
     {
         if (isInitialized == false)
             return;
-        var damagable = collision.gameObject.GetComponent<IDamagable>();
-        if (damagable != null)
-            damagable.TakeDamage(mDamage);
+
+        var isPlayer = collision.gameObject.GetComponent<Player>();
+        if (isPlayer != null)
+        {
+            if (Random.value > mAccurancy)
+                isPlayer.TakeDamage(mDamage);
+        }
+        else
+        {
+            if(collision.gameObject.name == "Head")
+            {
+                Debug.Log("HeadShot");
+                var headShot = collision.transform.parent.gameObject.GetComponent<IDamagable>();
+                if(headShot != null)
+                    headShot.TakeDamage(mHeadShotDamage);
+            }
+            else
+            {
+                Debug.Log("BodyShot");
+                var bodyshot = collision.gameObject.GetComponent<IDamagable>();
+                if (bodyshot != null)
+                    bodyshot.TakeDamage(mDamage);
+            }
+        }
+        ServiceLocator.Get<ObjectPoolManager>().RecycleObject(this.gameObject);
     }
 
     private IEnumerator DelayedDestroyObject()

@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Controller\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Controller\VisualSensor.cs" />
     <Compile Include="Assets\Scripts\GameModuler\AsyncLoader.cs" />
     <Compile Include="Assets\Scripts\GameModuler\DelayedDestory.cs" />
     <Compile Include="Assets\Scripts\GameModuler\GameLoader.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Assets\Scripts\GameModuler\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Unit\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Unit\EnemySpawnManager.cs" />
+    <Compile Include="Assets\Scripts\Unit\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Unit\FootGunner.cs" />
     <Compile Include="Assets\Scripts\Unit\HeavyGunner.cs" />
     <Compile Include="Assets\Scripts\Unit\Player.cs" />
