@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, IDamagable
         if(!isDead)
         {
             mHealth -= value;
-            if (mHealth >= 0.0f)
+            if (mHealth <= 0.0f)
                 isDead = true;
         }
     }

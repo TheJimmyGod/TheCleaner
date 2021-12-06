@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.26
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -375,6 +375,30 @@ MonoBehaviour:
     prefab: {fileID: 1022674299139112601, guid: e088d8800a6ff3442a39815357b62050,
       type: 3}
     poolSize: 100
+  - name: FootGunBullet
+    prefab: {fileID: 4133521527736377322, guid: db08ed5f063b5a74481bfcdba8102cb7,
+      type: 3}
+    poolSize: 100
+  - name: HeavyGunBullet
+    prefab: {fileID: 2904314546754638470, guid: 0435194918e5c65449649a1ce2d0495f,
+      type: 3}
+    poolSize: 200
+  - name: SniperGunBullet
+    prefab: {fileID: 6473890959563763551, guid: 9e46fa603e1523b4eb617db2e7a81dc8,
+      type: 3}
+    poolSize: 100
+  - name: FootGunner
+    prefab: {fileID: 5810833474636631059, guid: bb997514d208b77498ead670316ed83c,
+      type: 3}
+    poolSize: 10
+  - name: HeavyGunner
+    prefab: {fileID: 5107469711253792039, guid: 7aafe86ac5ddd534bb865071050434f7,
+      type: 3}
+    poolSize: 10
+  - name: SniperGunner
+    prefab: {fileID: 6533469165493082791, guid: f7703f1d0520e8446af469c290de27f5,
+      type: 3}
+    poolSize: 10
 --- !u!114 &1404080577
 MonoBehaviour:
   m_ObjectHideFlags: 0

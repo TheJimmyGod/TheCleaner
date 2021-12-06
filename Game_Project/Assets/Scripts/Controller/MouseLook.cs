@@ -9,15 +9,22 @@ public class MouseLook : MonoBehaviour
 
     public Transform controllerBody;
     public Transform controllerGun;
+
+    public Player player;
+
     private float xRot = 0.0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        player = transform.parent.gameObject.GetComponent<Player>();
     }
 
     void Update()
     {
+        if (player.IsDead)
+            return;
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

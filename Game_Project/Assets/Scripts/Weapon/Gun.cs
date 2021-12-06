@@ -16,8 +16,12 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private int maxAmmo;
     private int ammo;
-
     void Start()
+    {
+        ammo = maxAmmo;
+    }
+
+    public void Restore()
     {
         ammo = maxAmmo;
     }
