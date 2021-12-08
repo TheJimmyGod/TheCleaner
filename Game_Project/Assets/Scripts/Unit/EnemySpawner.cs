@@ -8,7 +8,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     EnemyType enemyType;
-
+    [SerializeField]
+    private float angle = 0.0f;
     public Color gizmoColor = Color.green;
 
     // It's property for waves
@@ -44,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
             _enemy.SetActive(true);
             _enemy.GetComponent<Enemy>().Restore();
             _enemy.GetComponent<Enemy>().enemyGun.Restore();
+            _enemy.transform.Rotate(0.0f, angle, 0.0f);
             _activeEnemies.Add(_enemy);
         }
     }

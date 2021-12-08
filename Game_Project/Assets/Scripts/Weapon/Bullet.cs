@@ -30,11 +30,12 @@ public class Bullet : MonoBehaviour
         var isPlayer = collision.gameObject.GetComponent<Player>();
         if (isPlayer != null)
         {
-            if (Random.value > mAccurancy)
+            if (Random.value < mAccurancy)
                 isPlayer.TakeDamage(mDamage);
         }
         else
         {
+            Debug.Log(collision.gameObject.name);
             if(collision.gameObject.name == "Head")
             {
                 Debug.Log("HeadShot");

@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class FootGunner : Enemy
 {
-
     protected override IEnumerator Death()
     {
         StartCoroutine(base.Death());
