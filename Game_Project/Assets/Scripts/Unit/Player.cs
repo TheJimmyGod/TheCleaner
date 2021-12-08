@@ -8,8 +8,11 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField]
     private float mMaxHealth = 100.0f;
 
+    public float Health { get { return mHealth; } }
+
     private bool isDead = false;
 
+    private Bleeding bleedEffect;
     public bool IsDead
     {
         get { return isDead; }
@@ -20,9 +23,18 @@ public class Player : MonoBehaviour, IDamagable
     { 
         if(!isDead)
         {
+            Debug.Log("Damaged!");
             mHealth -= value;
+            bleedEffect.StartCoroutine("StartBleeding");
+            if (mHealth <= 1)
+            {
+                bleedEffect.StartCoroutine("StartFatalBleeding");
+            }
             if (mHealth <= 0.0f)
+            {
                 isDead = true;
+                bleedEffect.StopAllCoroutines();
+            }
         }
     }
 
@@ -31,6 +43,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         isDead = false;
         mHealth = mMaxHealth;
+        bleedEffect = transform.Find("PostProcessing").gameObject.GetComponent<Bleeding>();
     }
 
     // Update is called once per frame
