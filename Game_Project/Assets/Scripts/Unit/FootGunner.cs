@@ -19,7 +19,7 @@ public class FootGunner : Enemy
     {
         StartCoroutine(base.Death());
         yield return new WaitForSeconds(1.0f);
-        GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("FootGunnerGun");
+        //GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("FootGunnerGun");
     }
 
     protected override void Move()
