@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971016301227861881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 971016301395191623}
@@ -296,6 +296,7 @@ MonoBehaviour:
     m_Bits: 256
   playerGun: {fileID: 971016299833632902}
   player: {fileID: 971016301227861885}
+  currentWeapon: {fileID: 0}
 --- !u!143 &971016301227861883
 CharacterController:
   m_ObjectHideFlags: 0
