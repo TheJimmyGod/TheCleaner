@@ -18,7 +18,7 @@ public class SniperGunner : Enemy
     protected override IEnumerator Death()
     {
         StartCoroutine(base.Death());
-        GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("SniperGunnerGun");
+       // GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("SniperGunnerGun");
         yield return null;
     }
 

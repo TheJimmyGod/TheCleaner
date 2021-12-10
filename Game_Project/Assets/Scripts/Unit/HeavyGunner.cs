@@ -20,7 +20,7 @@ public class HeavyGunner : Enemy
     protected override IEnumerator Death()
     {
         StartCoroutine(base.Death());
-        GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("HeavyGunnerGun");
+        //GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("HeavyGunnerGun");
         yield return null;
     }
     protected override void Move()
