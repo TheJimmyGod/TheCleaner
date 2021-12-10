@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Controller\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controller\VisualSensor.cs" />
+    <Compile Include="Assets\Scripts\Drop+PickUp\PickUpController.cs" />
     <Compile Include="Assets\Scripts\Effect\Bleeding.cs" />
     <Compile Include="Assets\Scripts\Environment\Barrel.cs" />
     <Compile Include="Assets\Scripts\Environment\Door.cs" />
@@ -89,6 +90,11 @@
     <Compile Include="Assets\Scripts\Unit\SniperGunner.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
+    <Compile Include="Assets\Scripts\Weapon\IDropable.cs" />
+    <Compile Include="Assets\Scripts\Weapon\IPickUpable.cs" />
+    <Compile Include="Assets\Scripts\Weapon\PickUpSystem.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Object.shader" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Global.shader" />
