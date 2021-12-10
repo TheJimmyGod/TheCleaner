@@ -16,9 +16,13 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private int maxAmmo;
     private int ammo;
+
+    public Animator animator;
+
     void Start()
     {
         ammo = maxAmmo;
+        animator = GetComponent<Animator>();
     }
 
     public void Restore()
@@ -29,6 +33,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         if (ammo == 0) return;
+        animator.Play("Fire");
         GameObject bullet = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool(bulletName);
         bullet.SetActive(true);
         bullet.transform.position = firePoint.transform.position;
