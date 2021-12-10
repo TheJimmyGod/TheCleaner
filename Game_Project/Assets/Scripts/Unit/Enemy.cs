@@ -20,56 +20,63 @@ public class Enemy : MonoBehaviour, IDamagable
     [SerializeField]
     protected float wonderLimit = 10.0f;
     
-
     protected bool isDeath = false;
     protected bool isDetected = false;
     protected float wonderTimer = 0.0f;
 
-
     public Gun enemyGun = null;
     private float timer = 0.0f;
     private float detectionTimer = 0.0f;
-   
 
+    public Animator animator;
     public Transform target;
-
     public NavMeshAgent mAgent;
+
+    private Vector3 velocity = Vector3.zero;
 
     void Start()
     {
         health = maxHealth;
-        enemyGun = transform.Find("Gun").gameObject.GetComponent<Gun>();
         mAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update() => OnUpdate();
+
+    protected virtual void OnUpdate()
     {
-        if (isDeath)
-            return;
+        if (isDeath) return;
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player")?.transform;
             return;
         }
-        
-        if(isDetected)
+
+        if (isDetected)
         {
             timer += Time.deltaTime;
             mAgent.isStopped = true;
-            Vector3 toTarget = target.position - transform.position;
-            Quaternion toRotation = Quaternion.LookRotation(toTarget);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 4.0f * Time.deltaTime);
             if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
+                animator.SetBool("Shoot", true);
+                if (animator.IsInTransition(0))
+                    return;
+
                 if (timer >= attackTime)
                 {
                     Shoot();
                     timer = 0.0f;
                 }
             }
+            else
+            {
+                timer = 0.0f;
+                animator.SetBool("Shoot", false);
+            }
         }
         else
         {
+            timer = 0.0f;
             detectionTimer += Time.deltaTime;
             wonderTimer += Time.deltaTime;
             if (detectionTimer >= detectPerTime)
@@ -85,6 +92,7 @@ public class Enemy : MonoBehaviour, IDamagable
         }
 
         Move();
+
     }
 
     public void TakeDamage(float value)
@@ -111,10 +119,20 @@ public class Enemy : MonoBehaviour, IDamagable
 
     protected virtual void Move()
     {
-        if(isDetected)
+        float vel = mAgent.velocity.magnitude;
+        animator.SetFloat("Speed", vel);
+        if (isDetected)
         {
             if (Vector3.Distance(transform.position, target.position) > attackRange)
-                transform.position = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+            {
+                mAgent.isStopped = false;
+                mAgent.SetDestination(target.position);
+            }
+            else
+            {
+                mAgent.isStopped = true;
+                mAgent.velocity = Vector3.zero;
+            }
         }
     }
 
