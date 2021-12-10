@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         if (ammo == 0) return;
-        animator.Play("Fire");
+        animator?.Play("Fire");
         GameObject bullet = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool(bulletName);
         bullet.SetActive(true);
         bullet.transform.position = firePoint.transform.position;
