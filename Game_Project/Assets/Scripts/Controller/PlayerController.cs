@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject playerGun;
     public Player player;
 
+    public Weapon currentWeapon;
+
     void Start()
     {
         player = gameObject.GetComponent<Player>();
@@ -52,10 +54,10 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            if (playerGun == null)
+            if (currentWeapon == null)
                 Debug.Log("Gun is not available!");
             else
-                playerGun.gameObject.GetComponent<Gun>().Shoot();
+                currentWeapon.Shoot();
         }
 
         mVelocity.y += mGravity * Time.deltaTime;
