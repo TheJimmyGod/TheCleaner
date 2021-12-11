@@ -5,11 +5,21 @@ using UnityEngine.AI;
 
 public class FootGunner : Enemy
 {
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        if(isDetected)
+        {
+            Vector3 toTarget = target.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(toTarget);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 4.0f * Time.deltaTime);
+        }
+    }
     protected override IEnumerator Death()
     {
         StartCoroutine(base.Death());
         yield return new WaitForSeconds(1.0f);
-        GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("FootGunnerGun");
+        //GameObject gun = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool("FootGunnerGun");
     }
 
     protected override void Move()
