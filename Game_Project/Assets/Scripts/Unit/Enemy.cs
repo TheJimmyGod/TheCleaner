@@ -24,11 +24,18 @@ public class Enemy : MonoBehaviour, IDamagable
     protected bool isDetected = false;
     protected float wonderTimer = 0.0f;
 
+    public bool isDead
+    {
+        get { return isDeath; }
+    }
+
     public Gun enemyGun = null;
     private float timer = 0.0f;
     private float detectionTimer = 0.0f;
 
     public Animator animator;
+    public GameObject dropItem;
+    private Rigidbody rb;
     public Transform target;
     public NavMeshAgent mAgent;
 
@@ -39,6 +46,7 @@ public class Enemy : MonoBehaviour, IDamagable
         health = maxHealth;
         mAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update() => OnUpdate();
@@ -103,18 +111,22 @@ public class Enemy : MonoBehaviour, IDamagable
             isDetected = true;
             if (health <= 0.0f)
                 StartCoroutine(Death());
+            rb.velocity = Vector3.zero;
+            mAgent.Stop();
         }
     }
 
     public void Shoot()
     {
-        if(enemyGun && target) enemyGun.Shoot();
+        if(enemyGun && target) enemyGun.Shoot(target);
     }
 
     public void Restore()
     {
         health = maxHealth;
         isDeath = false;
+        enemyGun.Restore();
+        mAgent.isStopped = false;
     }
 
     protected virtual void Move()
@@ -139,6 +151,8 @@ public class Enemy : MonoBehaviour, IDamagable
     protected virtual IEnumerator Death()
     {
         isDeath = true;
+        animator.SetBool("Shoot", false);
+        mAgent.isStopped = true;
         yield return new WaitForSeconds(3.0f);
         ServiceLocator.Get<ObjectPoolManager>().RecycleObject(this.gameObject);
     }

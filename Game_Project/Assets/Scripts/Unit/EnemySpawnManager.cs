@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemySpawnManager : MonoBehaviour
 {
     public List<EnemySpawner> Spawners { get; set; }
+    public List<GameObject> EnemyList;
 
     private void Awake()
     {
         Spawners = new List<EnemySpawner>(FindObjectsOfType<EnemySpawner>());
+        EnemyList = new List<GameObject>();
     }
 
     void Start()
@@ -33,5 +35,15 @@ public class EnemySpawnManager : MonoBehaviour
         {
             spawner.StartSpawner();
         }
+    }
+
+    public void Register(Transform transform)
+    {
+        EnemyList.Add(transform.gameObject);
+    }
+
+    public void UnRegister(Transform transform)
+    {
+        EnemyList.Remove(transform.gameObject);
     }
 }

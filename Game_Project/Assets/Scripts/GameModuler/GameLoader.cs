@@ -13,6 +13,9 @@ public class GameLoader : AsyncLoader
     // All of the components that implement the IGameModule interface.
     public List<Component> gameModules = new List<Component>();
 
+    public GameObject uiManagerPrefeb;
+    public GameObject audioManagerPrefeb;
+
     protected override void Awake()
     {
         Debug.Log("GameLoader Starting");
@@ -83,11 +86,25 @@ public class GameLoader : AsyncLoader
     {
         // Setup Core Systems
         Debug.Log("Loading Core Systems");
-        //for(int i = 0; i < ; i++)
-        //{
-        //    _coreLoadCurrentStep += 1.0f;
-        //    yield return null;
-        //}
+
+        GameObject uiManagerGO = GameObject.Instantiate(uiManagerPrefeb);
+        uiManagerGO.transform.SetParent(systemsParent);
+        var uiManagerComponent = uiManagerGO.GetComponent<UIManager>();
+        ServiceLocator.Register<UIManager>(uiManagerComponent.Initialize());
+        _coreLoadCurrentStep += 1.0f;
+
+        GameObject levelManagerGO = new GameObject("LevelMananger");
+        levelManagerGO.transform.SetParent(systemsParent);
+        var levelManagerComponent = levelManagerGO.AddComponent<LevelManager>();
+        ServiceLocator.Register<LevelManager>(levelManagerComponent.Initialize());
+        _coreLoadCurrentStep += 1.0f;
+
+        GameObject audioManagerGO = GameObject.Instantiate(audioManagerPrefeb);
+        audioManagerGO.transform.SetParent(systemsParent);
+        var audioManagerComponent = audioManagerGO.GetComponent<UIManager>();
+        ServiceLocator.Register<UIManager>(audioManagerComponent);
+        _coreLoadCurrentStep += 1.0f;
+
         yield return null;
     }
 
@@ -115,7 +132,6 @@ public class GameLoader : AsyncLoader
     {
         Debug.Log("GameLoader Starting Scene Load");
         var loadOp = SceneManager.LoadSceneAsync(index);
-
         loadingScreen.UpdateLoadingStep("Loading Scene: " + index.ToString());
 
         while (!loadOp.isDone)

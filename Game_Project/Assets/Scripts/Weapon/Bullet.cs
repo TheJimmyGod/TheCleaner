@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
         StartCoroutine("DelayedDestroyObject");
         isInitialized = true;
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (isInitialized == false)
@@ -30,22 +29,18 @@ public class Bullet : MonoBehaviour
         var isPlayer = collision.gameObject.GetComponent<Player>();
         if (isPlayer != null)
         {
-            if (Random.value < mAccurancy)
-                isPlayer.TakeDamage(mDamage);
+            if (Random.value < mAccurancy) isPlayer.TakeDamage(mDamage);
         }
         else
         {
-            Debug.Log(collision.gameObject.name);
             if(collision.gameObject.name == "Head")
             {
-                Debug.Log("HeadShot");
                 var headShot = collision.transform.parent.gameObject.GetComponent<IDamagable>();
                 if(headShot != null)
                     headShot.TakeDamage(mHeadShotDamage);
             }
             else
             {
-                Debug.Log("BodyShot");
                 var bodyshot = collision.gameObject.GetComponent<IDamagable>();
                 if (bodyshot != null)
                     bodyshot.TakeDamage(mDamage);

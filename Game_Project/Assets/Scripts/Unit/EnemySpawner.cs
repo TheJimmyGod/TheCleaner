@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float angle = 0.0f;
     public Color gizmoColor = Color.green;
-
+    private GameObject spawnManagerGO;
     // It's property for waves
     [SerializeField]
     private int enemyCount;
@@ -20,13 +20,11 @@ public class EnemySpawner : MonoBehaviour
     {
         get { return enemyCount; }
     }
-
     public bool StartOnSceneLoad = true;
-
-    private List<GameObject> _activeEnemies = new List<GameObject>();
     
     public void StartSpawner()
     {
+        spawnManagerGO = GameObject.FindGameObjectWithTag("SpawnManager").gameObject;
         StartCoroutine("BeginWaveSpawn");
     }
 
@@ -46,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
             _enemy.GetComponent<Enemy>().Restore();
             _enemy.GetComponent<Enemy>().enemyGun.Restore();
             _enemy.transform.Rotate(0.0f, angle, 0.0f);
-            _activeEnemies.Add(_enemy);
+            spawnManagerGO.GetComponent<EnemySpawnManager>().EnemyList.Add(_enemy);
         }
     }
 

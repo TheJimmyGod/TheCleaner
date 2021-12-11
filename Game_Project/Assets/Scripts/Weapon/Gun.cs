@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     private int ammo;
 
     public Animator animator;
+    public ParticleSystem particle;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class Gun : MonoBehaviour
         ammo = maxAmmo;
     }
 
-    public void Shoot()
+    public void Shoot(Transform target)
     {
         if (ammo == 0) return;
         animator?.Play("Fire");
@@ -41,6 +42,8 @@ public class Gun : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.AddForce(firePoint.forward * bulletSpeed, ForceMode.Impulse);
+        bullet.transform.LookAt(target.position - bullet.transform.position);
+        particle.Play();
         ammo--;
     }
 }
