@@ -53,18 +53,24 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
     {
         Vector3 gunPos = new Vector3(0.59f, -0.05f, 0.65f);
         transform.localPosition =gunPos;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
         rb.isKinematic = true;
         transform.SetParent(parent, false);
+        parent.Find("FPS Camera").GetComponent<MouseLook>().controllerGun = this.gameObject.transform;
+        parent.Find("FPS Camera").GetComponent<MouseLook>().weapon = true;
     }
 
     void IDropable.Drop(Transform parent)
     {
+
         transform.SetParent(parent,true);
         rb.isKinematic = false;
         rb.AddForce(transform.forward * force, ForceMode.Impulse);
         rb.AddForce(transform.up * force, ForceMode.Impulse);
-        float ramdom = Random.Range(-1.0f, 0.0f);
-        rb.AddTorque(new Vector3(ramdom, ramdom, ramdom));
+        //gameObject.transform = new Vector3.zero;
+        //float ramdom = Random.Range(-1.0f, 0.0f);
+        //rb.AddTorque(new Vector3(ramdom, ramdom, ramdom));
+
     }
 
     T IPickUpable.GetClass<T>() 

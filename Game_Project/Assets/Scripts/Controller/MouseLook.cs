@@ -9,6 +9,7 @@ public class MouseLook : MonoBehaviour
 
     public Transform controllerBody;
     public Transform controllerGun;
+    public bool weapon = false;
 
     public Player player;
 
@@ -33,6 +34,9 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
         controllerBody.Rotate(Vector3.up * mouseX);
-        controllerGun.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
+        if (weapon)
+        {
+            controllerGun.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
+        }
     }
 }

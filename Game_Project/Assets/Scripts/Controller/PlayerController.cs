@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
     public GameObject playerGun;
     public Player player;
 
-    public Weapon currentWeapon;
+    private Weapon currentWeapon;
+
+    public Weapon CurrentWeapon 
+    { get => currentWeapon; set => currentWeapon = value; }
 
     void Start()
     {

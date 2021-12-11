@@ -291,6 +291,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567470314748934362, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 865456925551383554, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 971016299833632902, guid: 2c5d47b25679be24694b8a1f6c27be60,
         type: 3}
       propertyPath: m_Layer
@@ -366,6 +376,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3515515060303294957, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5230159855315567124, guid: 2c5d47b25679be24694b8a1f6c27be60,
         type: 3}
       propertyPath: mBleedTime
@@ -375,6 +390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mMaxIntensity
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255053995128169790, guid: 2c5d47b25679be24694b8a1f6c27be60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6292353334605439793, guid: 2c5d47b25679be24694b8a1f6c27be60,
         type: 3}
