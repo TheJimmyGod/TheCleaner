@@ -150,6 +150,7 @@ MonoBehaviour:
   bulletSpeed: 100
   bulletDamage: 1
   maxAmmo: 10
+  animator: {fileID: 0}
 --- !u!1 &971016300091485463
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +577,6 @@ Transform:
   m_Father: {fileID: 971016301227861882}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1 &3123090872947223174
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +595,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-
 --- !u!4 &2683803588834210980
 Transform:
   m_ObjectHideFlags: 0

@@ -89,9 +89,11 @@
     <Compile Include="Assets\Scripts\Unit\Player.cs" />
     <Compile Include="Assets\Scripts\Unit\SniperGunner.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Burst.cs" />
     <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
     <Compile Include="Assets\Scripts\Weapon\IDropable.cs" />
     <Compile Include="Assets\Scripts\Weapon\IPickUpable.cs" />
+    <Compile Include="Assets\Scripts\Weapon\MachineGun.cs" />
     <Compile Include="Assets\Scripts\Weapon\PickUpSystem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />

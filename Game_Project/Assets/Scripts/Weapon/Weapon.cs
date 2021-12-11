@@ -8,18 +8,18 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
 
     //private Rigidbody rb;
     [SerializeField]
-    private string bulletName;
+    protected string bulletName;
     [SerializeField]
-    private float damage=0.0f;
+    protected float damage=0.0f;
     [SerializeField]
-    private float force=0.0f;
+    protected float force=0.0f;
     [SerializeField]
-    private float attackSpeed=0.0f;
+    protected float attackSpeed=0.0f;
 
     Rigidbody rb ;
     [SerializeField]
-    private int maxAmmo;
-    private int ammo;
+    protected int maxAmmo;
+    protected int ammo;
     // Start is called before the first frame update
     virtual protected void Start() 
     {
@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
 
     }
 
-    public void Shoot()
+    virtual public void Shoot()
     {
         if (ammo == 0) return;
         GameObject bullet = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool(bulletName);
