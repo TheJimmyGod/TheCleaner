@@ -91,6 +91,7 @@
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Object.shader" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Global.shader" />
+    <None Include="Assets\SimpleSky\ReadMe.txt" />
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Object.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Work/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
