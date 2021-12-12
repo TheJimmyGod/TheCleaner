@@ -33,6 +33,8 @@ public class Burst : Weapon
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.AddForce(firePoint.forward * attackSpeed, ForceMode.Impulse);
+        particle.Play();
+        particle_Sec.Play();
         ammo--;
     }
     private void ShootRight()

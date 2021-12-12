@@ -20,8 +20,8 @@ public class HeavyGunner : Enemy
     protected override IEnumerator Death()
     {
         StartCoroutine(base.Death());
-        yield return new WaitForSeconds(1.0f);
-        //GameObject gun = GameObject.Instantiate(dropItem, transform.position + new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
+        GameObject gun = GameObject.Instantiate(dropItem, transform.position + new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
+        yield return null;
     }
     protected override void Move()
     {

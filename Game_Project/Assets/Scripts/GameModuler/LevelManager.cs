@@ -18,19 +18,24 @@ public class LevelManager : MonoBehaviour
     private GameObject playerGO;
 
     private GameState currentState = GameState.Initialize;
-    private int currentLevel = 1;
+    private int currentLevel = 2;
+
+    public int Level
+    {
+        get { return currentLevel; }
+    }
 
     public LevelManager Initialize()
     {
         currentState = GameState.Initialize;
-        currentLevel = 1;
+        currentLevel = 2;
         SetUp();
         return this;
     }
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0) return;
+        if (SceneManager.GetActiveScene().buildIndex < 1) return;
         if (playerGO == null || spawnManagerGO == null)
         {
             SetUp();
@@ -47,14 +52,15 @@ public class LevelManager : MonoBehaviour
             case GameState.Win:
                 {
                     currentState = GameState.Processing;
-                    ServiceLocator.Get<UIManager>().DisplayVictoryText();
+                    StartCoroutine(ServiceLocator.Get<UIManager>().DisplayVictoryText());
                     StartCoroutine(GoNextLevel());
                 }
                 break;
             case GameState.Lose:
                 {
                     currentState = GameState.Processing;
-                    // TODO: Lose text for UI manager
+                    StartCoroutine(ServiceLocator.Get<UIManager>().DisplayDefeatText());
+                    StartCoroutine(GoMainMenu());
                 }
                 break;
         }
@@ -71,8 +77,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator GoNextLevel()
     {
-        // TODO: Win text for UI Manager
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         if (currentLevel < SceneManager.sceneCountInBuildSettings)
         {
             Debug.Log("Come On");
@@ -82,6 +87,15 @@ public class LevelManager : MonoBehaviour
             currentState = GameState.Initialize;
             SetUp();
         }
+    }
+
+    private IEnumerator GoMainMenu()
+    {
+        yield return new WaitForSeconds(5.0f);
+        currentLevel = 2;
+        SceneManager.LoadScene(1);
+        ServiceLocator.Get<UIManager>().UnDisplayText();
+        currentState = GameState.Initialize;
     }
 
     private GameState Condition()

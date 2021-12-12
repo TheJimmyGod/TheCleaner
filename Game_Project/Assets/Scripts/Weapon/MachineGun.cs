@@ -25,6 +25,10 @@ public class MachineGun : Weapon
     public IEnumerator ShootForward()
     {
         //if (ammo == 0) return;
+        particle.loop = true;
+        particle_Sec.loop = true;
+        particle.Play();
+        particle_Sec.Play();
         for (int i = 0; i <= shootAmount; )
         {
             yield return new WaitForSeconds(delay);
@@ -38,6 +42,8 @@ public class MachineGun : Weapon
             ammo--;
             ++i;
         }
+        particle.loop = false;
+        particle_Sec.loop = false;
     }
 
 

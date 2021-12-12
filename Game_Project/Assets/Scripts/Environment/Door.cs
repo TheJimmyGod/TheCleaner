@@ -15,7 +15,7 @@ public class Door : Environment
     private void Start()
     {
         startRotation = transform.eulerAngles.y;
-        endRotation = startRotation + 90.0f;
+        endRotation = startRotation + 120.0f;
     }
     protected override void Interact()
     {
