@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game_Project/Assets/Prefabs/Effects.meta
 guid: 7e6f106d4e07824479f028ee20a49b7b
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 3b0cb189d2de5cd408761495d7b9dc3c
+PrefabImporter:
+>>>>>>> Kairus:Game_Project/Assets/Prefabs/AK47.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

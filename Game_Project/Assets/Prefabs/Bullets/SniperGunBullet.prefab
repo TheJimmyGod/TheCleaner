@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4143109953625684085}
   - component: {fileID: 4133349126273499447}
   - component: {fileID: 4061142239876510229}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bullet_Trail_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5767276823296618829}
   - component: {fileID: 5767276823293751661}
   - component: {fileID: 5767276823294849965}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SM_Wep_Ammo_BulletLarge_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6855608907333891278}
   - component: {fileID: 2006601786297057863}
   - component: {fileID: 3830672739066368947}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SniperGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

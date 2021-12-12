@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 186385867707890679}
   - component: {fileID: 195342917465522869}
   - component: {fileID: 267250737035325847}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bullet_Trail_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4105234572725728277}
   - component: {fileID: 7618730452564974542}
   - component: {fileID: -7249232394497925722}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FootGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8342463202735114309}
   - component: {fileID: 8342463202738505829}
   - component: {fileID: 8342463202737408677}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SM_Wep_Ammo_BulletLarge_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
