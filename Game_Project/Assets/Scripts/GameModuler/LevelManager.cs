@@ -29,7 +29,6 @@ public class LevelManager : MonoBehaviour
     {
         currentState = GameState.Initialize;
         currentLevel = 2;
-        SetUp();
         return this;
     }
 
@@ -72,6 +71,18 @@ public class LevelManager : MonoBehaviour
         spawnManagerGO = GameObject.FindGameObjectWithTag("SpawnManager")?.gameObject;
         playerGO = GameObject.FindGameObjectWithTag("Player")?.gameObject;
         ServiceLocator.Get<UIManager>().SetUp();
+        switch (currentLevel)
+        {
+            case 2:
+                {
+                    ServiceLocator.Get<AudioManager>().musicSource.Stop();
+                    ServiceLocator.Get<AudioManager>().musicSource.clip = ServiceLocator.Get<AudioManager>().rain;
+                    ServiceLocator.Get<AudioManager>().musicSource.Play();
+                }
+                break;
+            default:
+                break;
+        }
         currentState = GameState.Playing;
     }
 

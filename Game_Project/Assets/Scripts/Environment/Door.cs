@@ -12,10 +12,12 @@ public class Door : Environment
     public Transform hingePoint;
     private bool isOpen = false;
     private float current = 0.0f;
+    private BoxCollider collider;
     private void Start()
     {
         startRotation = transform.eulerAngles.y;
         endRotation = startRotation + 120.0f;
+        collider = GetComponent<BoxCollider>();
     }
     protected override void Interact()
     {
@@ -51,6 +53,7 @@ public class Door : Environment
                 transform.rotation = Quaternion.Euler(0.0f, endRotation, 0.0f);
             yield return null;
         }
+        collider.enabled = false;
     }
 
     private IEnumerator CloseDoor()
@@ -65,6 +68,6 @@ public class Door : Environment
                 transform.rotation = Quaternion.Euler(0.0f, startRotation, 0.0f);
             yield return null;
         }
-        
+        collider.enabled = true;
     }
 }

@@ -15,6 +15,9 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         levelToLoad = ServiceLocator.Get<LevelManager>().Level;
+        ServiceLocator.Get<AudioManager>().musicSource.Stop();
+        ServiceLocator.Get<AudioManager>().musicSource.clip = ServiceLocator.Get<AudioManager>().mainMenu;
+        ServiceLocator.Get<AudioManager>().musicSource.Play();
     }
 
     private IEnumerator LoadLevelRoutine()

@@ -23,6 +23,8 @@ public class VisualSensor : MonoBehaviour
             return false;
         for (int i = 0; i < collider.Length; i++)
         {
+            if (collider[i].transform.localPosition.y > transform.localPosition.y + 1.2f)
+                continue;
             Transform targetTransform = collider[i].transform;
             Vector3 direction = (targetTransform.position - transform.position).normalized;
             if (Vector3.Dot(direction, transform.forward) > Mathf.Cos(viewAngle))
