@@ -7,10 +7,10 @@ public class MachineGun : Weapon
     // Start is called before the first frame update
     public float delay=0.1f; // change
     public int shootAmount=5;
+ 
     override protected void Start()
     {
         base.Start();
-        int currentA = 0;
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class MachineGun : Weapon
             ++i;
         }
     }
+
 
 
 }
