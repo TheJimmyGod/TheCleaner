@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
         if(isGrounded && Input.GetButtonDown("Jump"))
             mVelocity.y = Mathf.Sqrt(mJumpHeight * -2.0f * mGravity);
-
         if(Input.GetMouseButtonDown(0))
         {
             if (currentWeapon == null)

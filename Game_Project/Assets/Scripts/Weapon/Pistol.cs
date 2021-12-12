@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
-    // Start is called before the first frame update
     override protected void Start() 
     {
         base.Start();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
-    
-
 }

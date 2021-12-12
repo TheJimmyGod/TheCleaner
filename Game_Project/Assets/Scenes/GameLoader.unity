@@ -415,6 +415,10 @@ MonoBehaviour:
   loadingScreen: {fileID: 222486176}
   gameModules:
   - {fileID: 1404080576}
+  uiManagerPrefeb: {fileID: 5805881817478491294, guid: 06f7c92dc5c302541ac3ed784d0a9a0e,
+    type: 3}
+  audioManagerPrefeb: {fileID: 3952349552855142266, guid: 2b7da5e56fd738f4fa59a1bae0dd2287,
+    type: 3}
 --- !u!4 &1404080578
 Transform:
   m_ObjectHideFlags: 0
