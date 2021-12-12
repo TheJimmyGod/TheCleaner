@@ -14,13 +14,23 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float mHeadShotDamage = 4.0f;
     private bool isInitialized = false;
+    private Rigidbody rigidbody;
 
     public void Initialize(float damage)
     {
         mDamage = damage;
         StartCoroutine("DelayedDestroyObject");
+        rigidbody = GetComponent<Rigidbody>();
+        transform.LookAt(rigidbody.velocity);
         isInitialized = true;
     }
+
+    private void Update()
+    {
+        if (rigidbody != null)
+            transform.LookAt(rigidbody.velocity);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (isInitialized == false)

@@ -28,6 +28,10 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         get { return isDeath; }
     }
+    public bool IsDetected
+    {
+        get { return isDetected; }
+    }
 
     public Gun enemyGun = null;
     private float timer = 0.0f;
@@ -35,7 +39,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public Animator animator;
     public GameObject dropItem;
-    private Rigidbody rb;
+    public Rigidbody rb;
     public Transform target;
     public NavMeshAgent mAgent;
 
@@ -46,14 +50,20 @@ public class Enemy : MonoBehaviour, IDamagable
         health = maxHealth;
         mAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        rb = transform.GetComponent<Rigidbody>();
+        animator.SetBool("Death", isDeath);
     }
 
     private void Update() => OnUpdate();
 
     protected virtual void OnUpdate()
     {
-        if (isDeath) return;
+        if (isDeath)
+        {
+            animator.SetFloat("Speed", 0.0f);
+            animator.SetBool("Shoot", false);
+            return;
+        }
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -62,11 +72,11 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (isDetected)
         {
-            timer += Time.deltaTime;
             mAgent.isStopped = true;
             if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
                 animator.SetBool("Shoot", true);
+                timer += Time.deltaTime;
                 if (animator.IsInTransition(0))
                     return;
 
@@ -112,21 +122,31 @@ public class Enemy : MonoBehaviour, IDamagable
             if (health <= 0.0f)
                 StartCoroutine(Death());
             rb.velocity = Vector3.zero;
-            mAgent.Stop();
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+            mAgent.isStopped = true;
         }
     }
 
     public void Shoot()
     {
+        if (isDead)
+            return;
         if(enemyGun && target) enemyGun.Shoot(target);
     }
 
     public void Restore()
     {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = false;
         health = maxHealth;
         isDeath = false;
+        isDetected = false;
+        animator.SetBool("Death", isDeath);
         enemyGun.Restore();
         mAgent.isStopped = false;
+        animator.speed = 1.0f;
     }
 
     protected virtual void Move()
@@ -150,10 +170,14 @@ public class Enemy : MonoBehaviour, IDamagable
 
     protected virtual IEnumerator Death()
     {
-        isDeath = true;
+        isDetected = false;
         animator.SetBool("Shoot", false);
+        animator.speed = 1.25f;
+        enemyGun.StopEffect();
+        isDeath = true;
+        animator.SetBool("Death", isDeath);
         mAgent.isStopped = true;
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         ServiceLocator.Get<ObjectPoolManager>().RecycleObject(this.gameObject);
     }
 }

@@ -20,6 +20,10 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
     [SerializeField]
     protected int maxAmmo;
     protected int ammo;
+
+    public ParticleSystem particle;
+    public ParticleSystem particle_Sec;
+    public AudioClip gunSFX;
     // Start is called before the first frame update
     virtual protected void Start() 
     {
@@ -41,12 +45,18 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
     {
         if (ammo == 0) return;
         GameObject bullet = ServiceLocator.Get<ObjectPoolManager>().GetObjectFromPool(bulletName);
-        bullet.SetActive(true);
         bullet.transform.position = firePoint.transform.position;
+        bullet.SetActive(true);
+        Rigidbody BulletRb = bullet.GetComponent<Rigidbody>();
+        BulletRb.velocity = Vector3.zero;
+        BulletRb.AddForce(firePoint.forward * attackSpeed, ForceMode.Impulse);
+        bullet.transform.rotation = Quaternion.LookRotation(firePoint.position + BulletRb.velocity);
         bullet.GetComponent<Bullet>().Initialize(damage);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.AddForce(firePoint.forward * attackSpeed, ForceMode.Impulse);
+        particle.Play();
+        particle_Sec.Play();
+        //TODO: Input sound clip
+        //ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
+
         ammo--;
     }
     void IPickUpable.PickUp(Transform parent)

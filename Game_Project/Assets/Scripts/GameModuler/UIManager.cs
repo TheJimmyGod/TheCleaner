@@ -24,16 +24,20 @@ public class UIManager : MonoBehaviour
         crossHair.gameObject.SetActive(true);
     }
 
-    public void DisplayVictoryText()
+    public IEnumerator DisplayVictoryText()
     {
         text.gameObject.SetActive(true);
         text.transform.GetComponent<Text>().text = "Mission Completed!";
+        yield return new WaitForSeconds(5.0f);
+        UnDisplayText();
     }
 
-    public void DisplayDefeatText()
+    public IEnumerator DisplayDefeatText()
     {
         text.gameObject.SetActive(true);
         text.transform.GetComponent<Text>().text = "Mission Failed...";
+        yield return new WaitForSeconds(5.0f);
+        UnDisplayText();
     }
 
     public void UnDisplayText()

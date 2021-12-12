@@ -101,8 +101,8 @@ public class GameLoader : AsyncLoader
 
         GameObject audioManagerGO = GameObject.Instantiate(audioManagerPrefeb);
         audioManagerGO.transform.SetParent(systemsParent);
-        var audioManagerComponent = audioManagerGO.GetComponent<UIManager>();
-        ServiceLocator.Register<UIManager>(audioManagerComponent);
+        var audioManagerComponent = audioManagerGO.GetComponent<AudioManager>();
+        ServiceLocator.Register<AudioManager>(audioManagerComponent);
         _coreLoadCurrentStep += 1.0f;
 
         yield return null;
