@@ -17,22 +17,23 @@ public class PickUpController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(keyPickUpNDrop)&&!playerController.currentWeapon)
+        if (Input.GetKeyDown(keyPickUpNDrop)&&!playerController.CurrentWeapon)
 		{
 			float distance;
 			var obj = PickUpSystem.Instance.GetNearestPickUpObject(transform.position, out distance);
 			if (obj.GetClass<Weapon>() && distance < deteachedRadius)
 			{
 				obj.PickUp(transform);
-				playerController.currentWeapon = obj.GetClass<Weapon>();
+				playerController.CurrentWeapon = obj.GetClass<Weapon>();
 				PickUpSystem.Instance.Register(obj);
 			}
 		}
-		else if (Input.GetKeyDown(keyPickUpNDrop) && playerController.currentWeapon)
+		else if (Input.GetKeyDown(keyPickUpNDrop) && playerController.CurrentWeapon)
 		{
-			playerController.currentWeapon.GetComponent<IDropable>().Drop(PickUpSystem.Instance.gameObject.transform);
-			PickUpSystem.Instance.Unregister(playerController.currentWeapon.GetComponent<IPickUpable>());
-			playerController.currentWeapon = null;
+			transform.Find("FPS Camera").GetComponent<MouseLook>().weapon = false;
+			playerController.CurrentWeapon.GetComponent<IDropable>().Drop(PickUpSystem.Instance.gameObject.transform);
+			PickUpSystem.Instance.Unregister(playerController.CurrentWeapon.GetComponent<IPickUpable>());
+			playerController.CurrentWeapon = null;
 		}
 	}
 }

@@ -150,6 +150,7 @@ MonoBehaviour:
   bulletSpeed: 100
   bulletDamage: 1
   maxAmmo: 10
+  animator: {fileID: 0}
 --- !u!1 &971016300091485463
 GameObject:
   m_ObjectHideFlags: 0
