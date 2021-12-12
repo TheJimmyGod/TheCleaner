@@ -93,17 +93,19 @@ public class GameLoader : AsyncLoader
         ServiceLocator.Register<UIManager>(uiManagerComponent.Initialize());
         _coreLoadCurrentStep += 1.0f;
 
+        GameObject audioManagerGO = GameObject.Instantiate(audioManagerPrefeb);
+        audioManagerGO.transform.SetParent(systemsParent);
+        var audioManagerComponent = audioManagerGO.GetComponent<AudioManager>();
+        ServiceLocator.Register<AudioManager>(audioManagerComponent);
+        _coreLoadCurrentStep += 1.0f;
+
         GameObject levelManagerGO = new GameObject("LevelMananger");
         levelManagerGO.transform.SetParent(systemsParent);
         var levelManagerComponent = levelManagerGO.AddComponent<LevelManager>();
         ServiceLocator.Register<LevelManager>(levelManagerComponent.Initialize());
         _coreLoadCurrentStep += 1.0f;
 
-        GameObject audioManagerGO = GameObject.Instantiate(audioManagerPrefeb);
-        audioManagerGO.transform.SetParent(systemsParent);
-        var audioManagerComponent = audioManagerGO.GetComponent<AudioManager>();
-        ServiceLocator.Register<AudioManager>(audioManagerComponent);
-        _coreLoadCurrentStep += 1.0f;
+
 
         yield return null;
     }

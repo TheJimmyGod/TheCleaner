@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour, IDamagable
     protected bool isDetected = false;
     protected float wonderTimer = 0.0f;
 
+    private bool missedTarget = false;
+
     public bool isDead
     {
         get { return isDeath; }
@@ -72,9 +74,17 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (isDetected)
         {
+            missedTarget = false;
             mAgent.isStopped = true;
             if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
+                if(target.position.y > transform.position.y + 1.2f)
+                {
+                    missedTarget = true;
+                    isDetected = false;
+                    animator.SetBool("Shoot", false);
+                    return;
+                }    
                 animator.SetBool("Shoot", true);
                 timer += Time.deltaTime;
                 if (animator.IsInTransition(0))
@@ -94,23 +104,34 @@ public class Enemy : MonoBehaviour, IDamagable
         }
         else
         {
-            timer = 0.0f;
-            detectionTimer += Time.deltaTime;
-            wonderTimer += Time.deltaTime;
-            if (detectionTimer >= detectPerTime)
+            if(!missedTarget)
             {
-                isDetected = GetComponent<VisualSensor>().FindingTarget();
-                detectionTimer = 0.0f;
+                detectionTimer += Time.deltaTime;
+                wonderTimer += Time.deltaTime;
+                if (detectionTimer >= detectPerTime)
+                {
+                    isDetected = GetComponent<VisualSensor>().FindingTarget();
+                    detectionTimer = 0.0f;
+                }
+                var angle = GetComponent<VisualSensor>().angle + transform.rotation.y;
+                if (wonderTimer >= wonderLimit / 2.0f)
+                    transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * -angle);
+                else
+                    transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * angle);
             }
-            var angle = GetComponent<VisualSensor>().angle + transform.rotation.y;
-            if (wonderTimer >= wonderLimit / 2.0f)
-                transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * -angle);
             else
-                transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * angle);
+            {
+                detectionTimer += Time.deltaTime;
+                wonderTimer += Time.deltaTime;
+                if (detectionTimer >= detectPerTime)
+                {
+                    isDetected = GetComponent<VisualSensor>().FindingTarget();
+                    detectionTimer = 0.0f;
+                }
+            }
+            timer = 0.0f;
         }
-
         Move();
-
     }
 
     public void TakeDamage(float value)
@@ -147,6 +168,7 @@ public class Enemy : MonoBehaviour, IDamagable
         enemyGun.Restore();
         mAgent.isStopped = false;
         animator.speed = 1.0f;
+        missedTarget = false;
     }
 
     protected virtual void Move()

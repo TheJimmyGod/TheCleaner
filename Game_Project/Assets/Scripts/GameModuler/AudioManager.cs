@@ -5,6 +5,9 @@ using System.Collections;
 //test
 public class AudioManager : MonoBehaviour
 {
+    public AudioClip mainMenu;
+    public AudioClip rain;
+
     public AudioMixer audioMixer;
     public AudioSource musicSource;
     public AudioSource sfxSource;

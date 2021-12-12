@@ -27,10 +27,10 @@ public class FootGunner : Enemy
         base.Move();
         if(wonderTimer >= wonderLimit)
         {
-            var randomDirection = Random.insideUnitSphere * 50.0f;
+            var randomDirection = Random.insideUnitSphere * 10.0f;
             randomDirection += transform.position;
             NavMeshHit navHit;
-            NavMesh.SamplePosition(randomDirection, out navHit, 50.0f, -1);
+            NavMesh.SamplePosition(randomDirection, out navHit, 10.0f, -1);
             mAgent.SetDestination(navHit.position);
             wonderTimer = 0.0f;
         }
