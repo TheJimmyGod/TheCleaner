@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5153784220330061088}
-  bulletName: PlayerBullet
+  bulletName: HeavyGunBullet
   damage: 10
   force: 1
   attackSpeed: 100
