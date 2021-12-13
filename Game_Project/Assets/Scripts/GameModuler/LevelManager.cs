@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
                 {
                     currentState = GameState.Processing;
                     StartCoroutine(ServiceLocator.Get<UIManager>().DisplayDefeatText());
-                    StartCoroutine(GoMainMenu());
+                    StartCoroutine(Restart());
                 }
                 break;
         }
@@ -121,6 +121,14 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(GoMainMenu());
     }
     
+    private IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(currentLevel);
+        ServiceLocator.Get<UIManager>().UnDisplayText();
+        currentState = GameState.Initialize;
+    }
+
     private IEnumerator GoMainMenu()
     {
         yield return new WaitForSeconds(5.0f);
