@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mLifeSpan: 1.5
   mDamage: 1
-  mAccurancy: 0.9
+  mAccurancy: 0.7
   mHeadShotDamage: 4
 --- !u!54 &8204871561779832061
 Rigidbody:

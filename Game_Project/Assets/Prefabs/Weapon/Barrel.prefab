@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   interactDistance: 5
-  explosionRange: 7
+  explosionRange: 5.5
   damage: 100
   explosionEffect: {fileID: 4271090960277054263}
   explosionSFX: {fileID: 8300000, guid: 8f600f11ee6ec19449e05abab817d0de, type: 3}
