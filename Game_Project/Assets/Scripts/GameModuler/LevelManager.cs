@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
                 {
                     currentState = GameState.Processing;
                     StartCoroutine(ServiceLocator.Get<UIManager>().DisplayDefeatText());
-                    StartCoroutine(Restart());
+                    StartCoroutine(GoMainMenu());
                 }
                 break;
         }
@@ -121,21 +121,22 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(GoMainMenu());
     }
     
-    private IEnumerator Restart()
-    {
-        yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene(currentLevel);
-        ServiceLocator.Get<UIManager>().UnDisplayText();
-        currentState = GameState.Initialize;
-    }
-
     private IEnumerator GoMainMenu()
     {
         yield return new WaitForSeconds(5.0f);
+        foreach (var obj in spawnManagerGO.GetComponent<EnemySpawnManager>().EnemyList)
+        {
+            obj.GetComponent<Enemy>().TakeDamage(1000);
+        }
+        ServiceLocator.Get<AudioManager>().musicSource.Stop();
+        ServiceLocator.Get<AudioManager>().musicSource.clip = ServiceLocator.Get<AudioManager>().mainMenu;
+        ServiceLocator.Get<AudioManager>().musicSource.Play();
         currentLevel = 2;
         SceneManager.LoadScene(1);
         ServiceLocator.Get<UIManager>().UnDisplayText();
         currentState = GameState.Initialize;
+        Cursor.lockState = CursorLockMode.Confined;
+
     }
 
     private GameState Condition()
