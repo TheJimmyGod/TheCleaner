@@ -151,6 +151,7 @@ MonoBehaviour:
   bulletDamage: 1
   maxAmmo: 10
 <<<<<<< HEAD
+<<<<<<< HEAD
   autoGun: 0
   owner: {fileID: 0}
   animator: {fileID: 0}
@@ -160,6 +161,9 @@ MonoBehaviour:
 =======
   animator: {fileID: 0}
 >>>>>>> 6f65afe7 (Finished level 2)
+=======
+  animator: {fileID: 0}
+>>>>>>> 4e3a5eaacfaa99906fa8758c325645dfdac31e47
 --- !u!1 &971016300091485463
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +255,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Radius: 0.25
   m_Height: 2
   m_Direction: 1
@@ -261,6 +266,12 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: -0.009727478, y: -0.056749582, z: -0.00000011920929}
 >>>>>>> 6f65afe7 (Finished level 2)
+=======
+  m_Radius: 0.40279865
+  m_Height: 1.8865008
+  m_Direction: 1
+  m_Center: {x: -0.009727478, y: -0.056749582, z: -0.00000011920929}
+>>>>>>> 4e3a5eaacfaa99906fa8758c325645dfdac31e47
 --- !u!1 &971016300767406359
 GameObject:
   m_ObjectHideFlags: 0

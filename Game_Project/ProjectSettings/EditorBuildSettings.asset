@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/GameLoader.unity
     guid: fb247b3d8e82cc74987856a92b507d90
 <<<<<<< HEAD
+<<<<<<< HEAD
   - enabled: 0
 =======
+=======
+>>>>>>> 4e3a5eaacfaa99906fa8758c325645dfdac31e47
   - enabled: 1
     path: Assets/Scenes/Level_1.unity
     guid: cecced20058618547a1eef47856c8bee
