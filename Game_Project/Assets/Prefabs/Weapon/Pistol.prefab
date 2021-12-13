@@ -120,10 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 6982453734657124287}
   bulletName: PlayerBullet
-  damage: 10
+  damage: 30
   force: 1
-  attackSpeed: 100
-  maxAmmo: 1000
+  attackSpeed: 30
+  maxAmmo: 10
   particle: {fileID: 633420615335583442}
   particle_Sec: {fileID: 627194167515247380}
   gunSFX: {fileID: 0}
