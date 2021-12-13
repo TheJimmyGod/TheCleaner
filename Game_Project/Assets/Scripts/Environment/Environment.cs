@@ -42,7 +42,7 @@ public class Environment : MonoBehaviour, IDamagable
     protected virtual IEnumerator DestroyObject()
     {
         isDead = true;
-        Destroy(gameObject,3.0f);
+        Destroy(gameObject,1.1f);
         yield return null;
     }
 
