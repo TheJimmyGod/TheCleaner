@@ -185,7 +185,7 @@ MonoBehaviour:
   animator: {fileID: 2135406196030968778}
   particle: {fileID: 2507865200847838466}
   particle_Sec: {fileID: 2500583461276135620}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: 81ac649d26a9a96419b76c635591f6d8, type: 3}
 --- !u!95 &2135406196030968778
 Animator:
   serializedVersion: 3
@@ -2024,7 +2024,7 @@ GameObject:
   - component: {fileID: 5917204112468267599}
   - component: {fileID: 6782556756773791114}
   - component: {fileID: 3773453683102524848}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HeavyGunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2074,6 +2074,7 @@ MonoBehaviour:
   rb: {fileID: 6782556756773791114}
   target: {fileID: 0}
   mAgent: {fileID: 7539480397767924255}
+  clip: {fileID: 8300000, guid: 81ac649d26a9a96419b76c635591f6d8, type: 3}
 --- !u!114 &7444129003409085723
 MonoBehaviour:
   m_ObjectHideFlags: 0

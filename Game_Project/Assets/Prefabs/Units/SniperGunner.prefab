@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 2422893504938582818}
   - component: {fileID: 4382465930989566652}
   - component: {fileID: 1989515440546362003}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SniperGunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1883,6 +1883,7 @@ MonoBehaviour:
   rb: {fileID: 1989515440546362003}
   target: {fileID: 0}
   mAgent: {fileID: 2422893504938582818}
+  clip: {fileID: 8300000, guid: f19e3fdb9c8082647a2c32beca28ba84, type: 3}
 --- !u!114 &1962010973567695880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,7 +2225,7 @@ MonoBehaviour:
   animator: {fileID: 4742150598362035647}
   particle: {fileID: 6822301040908197569}
   particle_Sec: {fileID: 6833033563379708679}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: f19e3fdb9c8082647a2c32beca28ba84, type: 3}
 --- !u!95 &4742150598362035647
 Animator:
   serializedVersion: 3

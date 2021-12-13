@@ -29,6 +29,7 @@ public class MachineGun : Weapon
         particle_Sec.loop = true;
         particle.Play();
         particle_Sec.Play();
+        ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
         for (int i = 0; i <= shootAmount; )
         {
             yield return new WaitForSeconds(delay);

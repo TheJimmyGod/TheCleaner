@@ -126,7 +126,7 @@ MonoBehaviour:
   maxAmmo: 10
   particle: {fileID: 633420615335583442}
   particle_Sec: {fileID: 627194167515247380}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
 --- !u!54 &6057143688972510369
 Rigidbody:
   m_ObjectHideFlags: 0

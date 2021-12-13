@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public Rigidbody rb;
     public Transform target;
     public NavMeshAgent mAgent;
+    public AudioClip clip;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -169,6 +170,7 @@ public class Enemy : MonoBehaviour, IDamagable
         mAgent.isStopped = false;
         animator.speed = 1.0f;
         missedTarget = false;
+        enemyGun.gunSFX = clip;
     }
 
     protected virtual void Move()

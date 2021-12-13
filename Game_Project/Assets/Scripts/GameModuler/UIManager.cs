@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
 {
     public GameObject crossHair;
     public GameObject text;
-
     public UIManager Initialize()
     {
         return this;

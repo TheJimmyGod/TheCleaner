@@ -1785,7 +1785,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   particle: {fileID: 1380505659811043198}
   particle_Sec: {fileID: 1393560488246901432}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
 --- !u!95 &5616898563350489118
 Animator:
   serializedVersion: 3
@@ -2170,7 +2170,7 @@ GameObject:
   - component: {fileID: 1015401793178693410}
   - component: {fileID: 1715834411049750360}
   - component: {fileID: 1516666977944426083}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FootGunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,6 +2242,7 @@ MonoBehaviour:
   rb: {fileID: 1715834411049750360}
   target: {fileID: 0}
   mAgent: {fileID: 5810833474636631055}
+  clip: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
 --- !u!114 &5810833474636631052
 MonoBehaviour:
   m_ObjectHideFlags: 0

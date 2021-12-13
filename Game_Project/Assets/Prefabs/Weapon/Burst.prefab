@@ -186,7 +186,7 @@ MonoBehaviour:
   maxAmmo: 10
   particle: {fileID: 4680959212188001229}
   particle_Sec: {fileID: 4650101779743313419}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
   firePoint2: {fileID: 3972145799141842322}
   firePoint3: {fileID: 6660071971960002174}
 --- !u!1 &5153784220330061091

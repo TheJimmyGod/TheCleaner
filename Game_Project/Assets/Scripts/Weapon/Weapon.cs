@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
         particle.Play();
         particle_Sec.Play();
         //TODO: Input sound clip
-        //ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
+        ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
 
         ammo--;
     }

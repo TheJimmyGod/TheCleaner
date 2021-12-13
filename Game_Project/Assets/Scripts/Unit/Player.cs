@@ -13,6 +13,11 @@ public class Player : MonoBehaviour, IDamagable
     private bool isDead = false;
 
     private Bleeding bleedEffect;
+
+    public LayerMask layerMask;
+    private float timer = 0.0f;
+    private float RegenerateHP = 6.0f;
+
     public bool IsDead
     {
         get { return isDead; }
@@ -24,6 +29,7 @@ public class Player : MonoBehaviour, IDamagable
         if(!isDead)
         {
             Debug.Log("Damaged!");
+            timer = 0.0f;
             mHealth -= value;
             bleedEffect.StartCoroutine("StartBleeding");
             if (mHealth <= 1)
@@ -49,5 +55,15 @@ public class Player : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
+        if (mHealth < mMaxHealth)
+        {
+            bool collider = Physics.OverlapSphere(transform.localPosition, 10.0f, layerMask).Length > 0;
+            if (!collider)
+                timer += Time.deltaTime;
+            else
+                timer = 0.0f;
+            if (timer >= RegenerateHP)
+                mHealth = mMaxHealth;
+        }
     }
 }

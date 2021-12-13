@@ -36,10 +36,6 @@ public class Bleeding : MonoBehaviour
         else
             if(bleed.intensity.value > 0.0f)
                 bleed.intensity.value -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(StartBleeding());
-        }
     }
 
     private IEnumerator StartBleeding()

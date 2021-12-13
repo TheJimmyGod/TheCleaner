@@ -40,6 +40,8 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
+        if (gunSFX == null)
+            gunSFX = owner.GetComponent<Enemy>().clip;
         if(owner.GetComponent<Enemy>().isDead)
             animator.Play("Idle");
         if(owner.GetComponent<Enemy>().IsDetected == false && autoGun)
@@ -74,8 +76,8 @@ public class Gun : MonoBehaviour
         }
         particle.Play();
         particle_Sec.Play();
+        ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
         //TODO: Input sound clip
-        //ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
         ammo--;
     }
 }

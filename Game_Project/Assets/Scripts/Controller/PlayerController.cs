@@ -21,12 +21,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask mGroundMask;
 
     private bool isGrounded;
-
+    public LayerMask enemyLayer;
     public GameObject playerGun;
     public Player player;
 
+    public AudioClip punch;
     private Weapon currentWeapon;
-
+    
     public Weapon CurrentWeapon 
     { get => currentWeapon; set => currentWeapon = value; }
 
@@ -57,7 +58,31 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             if (currentWeapon == null)
-                Debug.Log("Gun is not available!");
+            {
+                Collider[] collider = Physics.OverlapSphere(transform.localPosition, 5.0f, enemyLayer);
+                if(collider.Length != 0)
+                {
+                    float maxFloat = float.MaxValue;
+                    float dist = 0.0f;
+                    IDamagable damagable = null;
+                    for (int i = 0; i < collider.Length; ++i)
+                    {
+                        var unit = collider[i].transform;
+                        dist = Vector3.Distance(transform.position, unit.position);
+                        if(maxFloat > dist)
+                        {
+                            maxFloat = dist;
+                            if(unit.GetComponent<Enemy>().isDead == false)
+                                damagable = unit.GetComponent<IDamagable>();
+                        }
+                    }
+                    if (damagable != null)
+                    {
+                        ServiceLocator.Get<AudioManager>().PlaySfx(punch);
+                        damagable.TakeDamage(10);
+                    }
+                }
+            }
             else
                 currentWeapon.Shoot();
         }

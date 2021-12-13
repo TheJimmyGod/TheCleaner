@@ -186,7 +186,7 @@ MonoBehaviour:
   maxAmmo: 50
   particle: {fileID: 536711199668352838}
   particle_Sec: {fileID: 507963970539838080}
-  gunSFX: {fileID: 0}
+  gunSFX: {fileID: 8300000, guid: 81ac649d26a9a96419b76c635591f6d8, type: 3}
   delay: 0.1
   shootAmount: 5
 --- !u!1001 &418115787806753196

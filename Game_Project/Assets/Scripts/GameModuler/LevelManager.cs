@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
             SetUp();
             return;
         }
-        if((currentState != GameState.Initialize) && (currentState != GameState.Processing)) 
+        if ((currentState != GameState.Initialize) && (currentState != GameState.Processing))
             currentState = Condition();
         switch (currentState)
         {
@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
                 }
                 break;
         }
-        
+
     }
 
     public void SetUp()
@@ -88,6 +88,11 @@ public class LevelManager : MonoBehaviour
                     ServiceLocator.Get<AudioManager>().musicSource.Play();
                 }
                 break;
+            case 3:
+                {
+                    ServiceLocator.Get<AudioManager>().musicSource.Stop();
+                }
+                break;
             default:
                 break;
         }
@@ -108,6 +113,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void GoMainMenuManual()
+    {
+        ServiceLocator.Get<AudioManager>().musicSource.Stop();
+        ServiceLocator.Get<AudioManager>().musicSource.clip = ServiceLocator.Get<AudioManager>().mainMenu;
+        ServiceLocator.Get<AudioManager>().musicSource.Play();
+        StartCoroutine(GoMainMenu());
+    }
+    
     private IEnumerator GoMainMenu()
     {
         yield return new WaitForSeconds(5.0f);

@@ -150,7 +150,12 @@ MonoBehaviour:
   bulletSpeed: 100
   bulletDamage: 1
   maxAmmo: 10
+  autoGun: 0
+  owner: {fileID: 0}
   animator: {fileID: 0}
+  particle: {fileID: 0}
+  particle_Sec: {fileID: 0}
+  gunSFX: {fileID: 0}
 --- !u!1 &971016300091485463
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,9 +344,12 @@ MonoBehaviour:
   mGroundMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   playerGun: {fileID: 971016299833632902}
   player: {fileID: 971016301227861885}
-  currentWeapon: {fileID: 0}
+  punch: {fileID: 8300000, guid: a6c8760eff86b25439ec465d335e8853, type: 3}
 --- !u!143 &971016301227861883
 CharacterController:
   m_ObjectHideFlags: 0
@@ -373,6 +381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxHealth: 4
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!114 &1365987651777172268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +497,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   controllerBody: {fileID: 971016301227861882}
   controllerGun: {fileID: 971016299833632903}
+  weapon: 0
   player: {fileID: 0}
 --- !u!114 &1184038339379434968
 MonoBehaviour:
@@ -640,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: {fileID: 0}
   mBleedTime: 3
-  mMaxIntensity: 0.15
+  mMaxIntensity: 0.3
 --- !u!1001 &568798077323617888
 PrefabInstance:
   m_ObjectHideFlags: 0

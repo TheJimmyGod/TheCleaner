@@ -35,6 +35,7 @@ public class Burst : Weapon
         rb.AddForce(firePoint.forward * attackSpeed, ForceMode.Impulse);
         particle.Play();
         particle_Sec.Play();
+        ServiceLocator.Get<AudioManager>().PlaySfx(gunSFX);
         ammo--;
     }
     private void ShootRight()
