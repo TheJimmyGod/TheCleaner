@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
                     if (damagable != null)
                     {
                         ServiceLocator.Get<AudioManager>().PlaySfx(punch);
-                        damagable.TakeDamage(10);
+                        damagable.TakeDamage(5);
                     }
                 }
             }

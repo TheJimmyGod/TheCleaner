@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IDamagable
 
     public LayerMask layerMask;
     private float timer = 0.0f;
-    private float RegenerateHP = 6.0f;
+    private float RegenerateHP = 3.0f;
 
     public bool IsDead
     {

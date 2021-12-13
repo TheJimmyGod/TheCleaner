@@ -181,8 +181,8 @@ MonoBehaviour:
   firePoint: {fileID: 5153784220330061088}
   bulletName: PlayerBullet
   damage: 50
-  force: 1
-  attackSpeed: 20
+  force: 3
+  attackSpeed: 75
   maxAmmo: 10
   particle: {fileID: 4680959212188001229}
   particle_Sec: {fileID: 4650101779743313419}
