@@ -128,6 +128,10 @@ public class LevelManager : MonoBehaviour
         {
             obj.GetComponent<Enemy>().TakeDamage(1000);
         }
+        foreach(var obj in GameObject.FindGameObjectsWithTag("Weapon"))
+        {
+            obj.GetComponent<Weapon>().DestroyGun();
+        }
         ServiceLocator.Get<AudioManager>().musicSource.Stop();
         ServiceLocator.Get<AudioManager>().musicSource.clip = ServiceLocator.Get<AudioManager>().mainMenu;
         ServiceLocator.Get<AudioManager>().musicSource.Play();

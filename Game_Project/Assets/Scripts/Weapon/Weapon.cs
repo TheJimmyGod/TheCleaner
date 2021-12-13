@@ -87,4 +87,9 @@ public class Weapon : MonoBehaviour,IPickUpable, IDropable
     {
         return this.gameObject.GetComponentInParent<T>();
     }
+
+    public void DestroyGun()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -80,4 +80,6 @@ public class Gun : MonoBehaviour
         //TODO: Input sound clip
         ammo--;
     }
+
+ 
 }
